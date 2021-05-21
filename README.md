@@ -7,7 +7,10 @@ Run the following npm command in your Node-RED user directory (typically ~/.node
 npm install bartbutenaers/node-red-contrib-sound-classifier
 ```
 
-**NOTE:** The Tensorflow.js library will be installed automatically. However Tensorflow.js is only available on certain OS/Hardware/processor combinations. Therfore it might not automatically work on all platforms, if you are unlucky...
+## Limitations!
++ The Tensorflow.js library will be installed automatically. However Tensorflow.js is only available on certain OS/Hardware/processor combinations. Therfore it might not automatically work on all platforms, if you are unlucky...
++ The recognition runs locally, but the YAMNet model will be loaded from the web (so it cannot be used in offline setups).
++ The recognitions will not always be accurate ...
 
 ## Introduction to Yamnet
 Based on audio from more than 2 million YouTube videos, a large public dataset of manually annotated audio events has been created (see [Audioset](https://research.google.com/audioset/)).  [Dan Ellis](https://github.com/dpwef) has used this Audioset to train the [YAMNet](https://www.tensorflow.org/hub/tutorials/yamnet) acoustic detection model, which is now able to detect 521 different sounds.  This node uses Tensorflow.js to run the model.
