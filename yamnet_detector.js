@@ -17,7 +17,7 @@
     var settings = RED.settings;
     const tf = require('@tensorflow/tfjs-node');
     const nodeWav = require('node-wav');
-    const classMapping = require('./classMapping');
+    const classMapping = require('./class_mapping');
 
     function YamNetDetectorNode(config) {
         RED.nodes.createNode(this,config);
