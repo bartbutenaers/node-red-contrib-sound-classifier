@@ -63,3 +63,13 @@ For example:
 
 ### Automatic conversion to 16kHz mono WAV
 When selected, the input WAV will be converted automatically to a 16kHz mono WAV.  Otherwise the WAV conversion needs to be done in advance by other nodes in the flow. 
+
+## Use cases
+There are a number of practical use cases, but always ***keep in mind*** that the recognition is not always correct!
+If you have other use cases, please share it with me!
+
++ Use this node to act as an acoustic glass break detector, without the need to position sensors on a window.
++ Use this node to make sure you will be woken when a baby is crying.
++ Use this node to detect unexpected sounds in your garden during the night, optionally in combination with other types of sensors.
++ Activate camera recordings as soon as specific sounds are being detected.
++ ...
