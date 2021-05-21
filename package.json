@@ -3,7 +3,7 @@
     "version": "0.2.2",
     "description": "A Node-RED node to detect 521 different sounds in a WAV fragment",
     "dependencies": {
-        "@tensorflow/tfjs-node": "^3.6.1",
+        "@tensorflow/tfjs-node": "^1.4.0",
         "node-wav": "0.0.2"
     },
     "author": {
