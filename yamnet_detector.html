@@ -1,0 +1,94 @@
+<!--
+  Copyright 2021, Bart Butenaers
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<script type="text/javascript">
+    RED.nodes.registerType('tfjs-yamnet-detector',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            inputField: {value:"payload", validate: RED.validators.typedInput("inputFieldType")},
+            outputField: {value:"payload", validate: RED.validators.typedInput("outputFieldType")},
+            inputFieldType: {value:"msg"},
+            outputFieldType: {value:"msg"},
+            useFirst: {value:false},
+            autoConversion: {value:true},
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-assistive-listening-systems",
+        paletteLabel: "Sound classifier",
+        label: function() {
+            return this.name || "Sound classifier";
+        },
+        oneditprepare: function() { 
+            var node = this;
+            
+            // Show the inputField value in a typedinput element (dropdown with only 'msg')
+            $("#node-input-inputFieldType").val(this.inputField);
+            $("#node-input-inputField").typedInput({
+                default: 'msg',
+                typeField: $("#node-input-inputFieldType"),
+                types:['msg']
+            });
+            $("#node-input-inputField").typedInput('type',this.inputFieldType);
+       
+            // Show the outputField value in a typedinput element (dropdown with only 'msg')
+            $("#node-input-outputFieldType").val(this.outputField);
+            $("#node-input-outputField").typedInput({
+                default: 'msg',
+                typeField: $("#node-input-outputFieldType"),
+                types:['msg']
+            });
+            $("#node-input-outputField").typedInput('type',this.outputFieldType);
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="tfjs-yamnet-detector">
+    <div class="form-row">
+        <label for="node-input-inputField"><i class="fa fa-list"></i> Input field</label>
+        <input id="node-input-inputField" type="text" style="width: 70%">
+        <input id="node-input-inputFieldType" type="hidden">
+    </div>
+    <div class="form-row">
+        <label for="node-input-outputField"><i class="fa fa-list"></i> Output field</label>
+        <input id="node-input-outputField" type="text" style="width: 70%">
+        <input id="node-input-outputFieldType" type="hidden">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-useFirst" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-useFirst" style="width:70%;"> Only use first class name, if multiple available</label>
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-autoConversion" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-autoConversion" style="width:70%;"> Automatic conversion to 16kHz mono WAV</label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="tfjs-yamnet-detector">
+    <p>A node to execute acoustic detection on a WAV audio fragment, to detect 521 different sounds (based on the <a target="_blank" href="https://www.tensorflow.org/hub/tutorials/yamnet">YAMnet</a> deep learning model).</p>
+    <p><strong>Input field:</strong><br/>
+    The input message field where the audio fragment needs to be injected, as 16kHz mono WAV.</p>
+    <p><strong>Output field:</strong><br/>
+    The output message field where the recognized.</p> 
+    <p><strong>Only use first class name, if multiple available:</strong><br/>
+    When selected, only the first class name will be used if multiple are available.  Otherwise an array of (related) class names will be used./p>
+    <p><strong>Automatic conversion to 16kHz mono WAV:</strong><br/>
+    When selected, the input WAV will be converted automatically to a 16kHz mono WAV.  Otherwise the WAV conversion needs to be done in advance by other nodes in the flow./p>     
+</script>
