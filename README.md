@@ -26,7 +26,7 @@ When a 16kHz mono WAV fragment buffer is injected, an output message will be sen
 
 ![Array output msg](https://user-images.githubusercontent.com/14224149/119165425-c1bc4c80-ba5d-11eb-963a-9a6488bfc5c2.png)
 
-Each different sound has a unique key (= class index) and a description (= class name).  A single key can have multiple descriptions, which is the reason why the class name field is an array.  An overview of all available keys (and the corresponding descriptions) can be found [here](https://raw.githubusercontent.com/bartbutenaers/node-red-contrib-sound-classifier/main/class_mapping.js).
+Each different sound has a unique key (= class index) and a description (= class name).  A single key can have multiple descriptions, which is the reason why the class name field is an array.  An overview of all available keys (and the corresponding descriptions) can be found [here](https://github.com/tensorflow/models/blob/master/research/audioset/yamnet/yamnet_class_map.csv).
 
 The following example flow injects a WAV file (which is fetched via a http request) and tries to recognize the sound:
 
@@ -79,3 +79,5 @@ If you have other use cases, please share it with me!
 + Use this node to detect unexpected sounds in your garden during the night, optionally in combination with other types of sensors.
 + Activate camera recordings as soon as specific sounds are being detected.
 + ...
+
+For more inspiration, have a look at the [overview](https://github.com/tensorflow/models/blob/master/research/audioset/yamnet/yamnet_class_map.csv) of all supported sounds.
