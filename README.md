@@ -7,6 +7,12 @@ Run the following npm command in your Node-RED user directory (typically ~/.node
 npm install bartbutenaers/node-red-contrib-sound-classifier
 ```
 
+## Support my Node-RED developments
+
+Please buy my wife a coffee to keep her happy, while I am busy developing Node-RED stuff for you ...
+
+<a href="https://www.buymeacoffee.com/bartbutenaers" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy my wife a coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
 ## Limitations!
 + The Tensorflow.js library will be installed automatically. However Tensorflow.js is only available on certain OS/Hardware/processor combinations. Therfore it might not automatically work on all platforms, if you are unlucky...
 + The recognition runs locally, but the YAMNet model will be loaded from the web (so it cannot be used in offline setups).
